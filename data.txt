@@ -1,0 +1,11 @@
+{"temperature":"30","humidity":"10"}
+{"temperature":"30","humidity":"20"}
+{"temperature":"30","humidity":"20"}
+{"temperature":"30","humidity":"20"}
+{"temperature":"30","humidity":"20"}
+{"temperature":"30","humidity":"20"}
+{"temperature":"30","humidity":"20"}
+{"temperature":"30","humidity":"20"}
+{"temperature":"1","humidity":"2"}
+{"temperature":"1","humidity":"2"}
+{"temperature":"2","humidity":"3"}
