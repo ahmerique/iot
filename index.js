@@ -4,11 +4,31 @@ const app = express();
 const port = 8080;
 const path = require('path');
 const bodyParser = require('body-parser');
+const SerialPort = require('serialport')
+const Readline = require('@serialport/parser-readline')
+const Port = new SerialPort('/dev/ttyACM0')
+
+const parser = Port.pipe(new Readline({
+  delimiter: '\r\n'
+}))
+
+parser.on('data', (data) => {
+  try {
+    JSON.parse(data);
+    fs.writeFile('./data.txt', '\n' + JSON.stringify(data), {
+      encoding: 'utf8',
+      flag: 'a'
+    })
+  } catch (err) {
+    console.log('JSON invalid')
+  }
+});
 
 app.use(bodyParser.urlencoded({
   extended: false
 }));
 app.use(express.json());
+
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(`${__dirname}/index.html`))
